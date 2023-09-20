@@ -26,21 +26,38 @@
 <body>
 <div class="bg-light" style="min-height: 100vh;">
     <br>
-    <div class="container-lg text-center">
+    <div class="container-lg text-center p-3">
+        <h1>Tastatur-Konverter</h1>
+        <br>
     <p>Drücke im Feld eine beliebige Taste:</p>
 
-    <input id="inp1" type="text" size="40" onkeyup="myFunction(event)">
+    <input id="inp1" type="text" size="40" onkeyup="encode(event)">
     <br>
         <br>
     <p id="demo"></p>
+        <br>
+        <hr>
+    </div>
+    <div class="container-lg text-center p-3">
+        <p>Gib eine Zahl ein und erfahre deren Bedeutung</p>
+        <input id="inp2" type="number" size="40"><br>
+        <button class="btn btn-primary my-3" onclick="decode()">Überprüfen</button>
+        <br>
+        <br>
+        <p id="demo2"></p>
     </div>
 </div>
 <script>
-    function myFunction() {
+    function encode() {
         let value= event.which;
         let inp = event.key;
         document.getElementById("demo").innerHTML = "Die Taste " + inp + " hat den Wert " + value;
         document.getElementById("inp1").value = "";
+    }
+    function decode() {
+        let value = document.getElementById("inp2").value;
+        let inp = String.fromCharCode(value);
+        document.getElementById("demo2").innerHTML = "Die Zahl " + value + " steht für die Taste " + inp;
     }
 </script>
 </body>
