@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tastatur-Inputs</title>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+</head>
+<!--
+ ░░░░░░░░░░░░░░░░░░░░░▄▀░░▌
+░░░░░░░░░░░░░░░░░░░▄▀▐░░░▌
+░░░░░░░░░░░░░░░░▄▀▀▒▐▒░░░▌
+░░░░░▄▀▀▄░░░▄▄▀▀▒▒▒▒▌▒▒░░▌
+░░░░▐▒░░░▀▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒█
+░░░░▌▒░░░░▒▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▀▄
+░░░░▐▒░░░░░▒▒▒▒▒▒▒▒▒▌▒▐▒▒▒▒▒▀▄
+░░░░▌▀▄░░▒▒▒▒▒▒▒▒▐▒▒▒▌▒▌▒▄▄▒▒▐
+░░░▌▌▒▒▀▒▒▒▒▒▒▒▒▒▒▐▒▒▒▒▒█▄█▌▒▒▌
+░▄▀▒▐▒▒▒▒▒▒▒▒▒▒▒▄▀█▌▒▒▒▒▒▀▀▒▒▐░░░▄
+▀▒▒▒▒▌▒▒▒▒▒▒▒▄▒▐███▌▄▒▒▒▒▒▒▒▄▀▀▀▀
+▒▒▒▒▒▐▒▒▒▒▒▄▀▒▒▒▀▀▀▒▒▒▒▄█▀░░▒▌▀▀▄▄
+▒▒▒▒▒▒█▒▄▄▀▒▒▒▒▒▒▒▒▒▒▒░░▐▒▀▄▀▄░░░░▀
+▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▄▒▒▒▒▄▀▒▒▒▌░░▀▄
+▒▒▒▒▒▒▒▒▀▄▒▒▒▒▒▒▒▒▀▀▀▀▒▒▒▄▀
+ -->
+<body>
+<div class="bg-light" style="min-height: 100vh;">
+    <br>
+    <div class="container-lg text-center">
+    <p>Drücke eine beliebige Taste:</p>
+
+    <input id="inp1" type="text" size="40" onkeyup="myFunction(event)">
+    <br>
+    <p id="demo"></p>
+    </div>
+</div>
+<script>
+    function myFunction() {
+        let value= event.which;
+        let inp = event.key;
+        document.getElementById("demo").innerHTML = "Die Taste " + inp + " hat den Wert " + value;
+        document.getElementById("inp1").value = "";
+    }
+</script>
+</body>
+</html>
