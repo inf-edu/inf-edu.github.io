@@ -10894,7 +10894,7 @@ textarea.form-control-lg {
 /* Grundlayout */
 body {
   position: relative;
-  padding-bottom: 50px;
+  padding-bottom: 0px;
 }
 
 /* Wollknäuel-Container */
