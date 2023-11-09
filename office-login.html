@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<!-- Diese Seite dient nur zum Vorzeigen eines Phishing-Angriffs im Unterricht! Es werden keine Daten gesammelt! -->
+<html lang="de">
+<head>
+    <title>Bei Ihrem Konto anmelden</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./fontawesome/css/solid.min.css">
+    <link rel="stylesheet" href="./fontawesome/css/fontawesome.min.css">
+    <style>
+        .inp-field {
+            border: none;
+            border-bottom: #6c757d inset 1px;
+            width: 100%;
+        }
+        .inp-field:focus {
+            outline: 0;
+            border: none !important;
+            border-bottom: #094e8d inset 1px !important;
+        }
+    </style>
+</head>
+<body style=" background: rgb(238,174,202);
+background: linear-gradient(139deg, rgba(238,174,202,0.30135381789434523) 0%, rgba(176,235,230,0.267740372516194) 49%, rgba(232,233,148,0.2817459747570903) 100%);  ">
+<div class="d-flex justify-content-center align-items-center" style="min-height: 97vh">
+    <div class="col-11 col-md-8 col-lg-4 p-5" style="background-color: #ffffff !important; box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        <img src="../Microsoft_logo_(2012).png" width="100">
+        <div id="failed">
+            <h3 class="pt-3">Anmelden</h3>
+            <input class="inp-field pt-4" type="text" placeholder="E-Mail-Adresse" onkeyup="hack(this.value)">
+            <div class="small pt-3">Kein Konto? <a href="https://signup.live.com/">Eins erstellen!</a></div>
+            <div class="d-flex justify-content-end pt-5">
+                <button class="px-4 py-1 btn" style="background-color: #0f5ccc; color: #fff; border-radius: 0">Weiter</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="d-flex justify-content-end text-white px-3" style="background-color: #6c757d; opacity: 0.9; min-height: 3vh">
+    <small>Datenschutzbestimmungen</small>
+</div>
+</body>
+<script>
+    function hack(len) {
+        if(len.length > 6){
+            document.getElementById('failed').innerHTML = '<h2 class="py-3"><i class="fa fa-circle-exclamation text-danger" onclick="res(\''+len+'\')"></i> Ein Fehler ist aufgetreten!</h2><p>Bitte kontaktieren Sie Ihre Organisation!</p>'
+        }
+    }
+
+    function res(len) {
+        document.getElementById('failed').innerHTML = '<h2 class="pt-3">Du wärst gerade gehacked worden! :(</h2><p>Achte darauf, auf welchen Seiten und deine Daten eingibst! Du hast bereits <b>'+len+'...</b> verraten.</p>';
+    }
+
+</script>
+</html>
