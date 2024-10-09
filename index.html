@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AMS - Willkommen</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: url('AMS_gr_w.png') no-repeat center center fixed;
+      background-size: cover;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    form {
+      background-color: rgba(255, 255, 255, 0.8); /* Transparenter Hintergrund für bessere Lesbarkeit */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    label {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    input {
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 12px;
+      background-color: #0066cc;
+      color: white;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #005bb5;
+    }
+
+    #floating-text {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: black;
+      text-align: center;
+      position: relative;
+      animation: float 15s linear infinite;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Schattierung für den Text */
+    }
+
+    @keyframes float {
+      0% {
+        left: -100vw;
+      }
+      100% {
+        left: 100vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <form onsubmit="return false;">
+    <label for="time">Startzeit</label>
+    <input type="time" id="time" name="time" required>
+
+    <label for="dnr">Bildschirm Nummer</label>
+    <input type="number" id="dnr" name="dnr" required min="0" value="0">
+
+    <button type="button" onclick="startTime(this.form)">Start</button>
+  </form>
+
+  <script>
+    // Funktion zur Voreinstellung der aktuellen Zeit im Input-Feld
+    function setCurrentTime() {
+      const now = new Date();
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      document.getElementById('time').value = `${hours}:${minutes}`;
+    }
+
+    // Funktion zur Startzeitberechnung
+    function startTime(form) {
+      const startTime = form.time.value;
+      const startH = parseInt(startTime.substring(0, 2), 10);
+      const startM = parseInt(startTime.substring(3, 5), 10);
+      const screenNum = parseInt(form.dnr.value, 10);
+      const interval = setInterval(checkTime, 500, startH, startM, screenNum);
+
+      function checkTime(startH, startM, screenNum) {
+        const now = new Date();
+        const currentH = now.getHours();
+        const currentM = now.getMinutes();
+        const currentS = now.getSeconds();
+        const targetTimeInSeconds = (startM * 60) + (screenNum * 12);
+        const currentTimeInSeconds = (currentM * 60) + currentS;
+
+        if (startH === currentH && currentTimeInSeconds >= targetTimeInSeconds) {
+          document.body.innerHTML = `
+            <h1 id="floating-text">Willkommen am Albertus Magnus Gymnasium!</h1>`;
+          clearInterval(interval);
+        }
+      }
+    }
+
+    // Setze die aktuelle Zeit beim Laden der Seite
+    window.onload = setCurrentTime;
+  </script>
+</body>
+</html>
