@@ -1,5 +1,17 @@
 <!DOCTYPE html>
 <html lang="de">
+
+<!--
+
+Hallo Anton lg Daniel ( ͡❛ ͜ʖ ͡❛)( ͡❛ ͜ʖ ͡❛)( ͡❛ ͜ʖ ͡❛)( ͡❛ ͜ʖ ͡❛)( ͡❛ ͜ʖ ͡❛)( ͡❛ ͜ʖ ͡❛)( ͡❛ ͜ʖ ͡❛)( ͡❛ ͜ʖ ͡❛)( ͡❛ ͜ʖ ͡❛)( ͡❛ ͜ʖ ͡❛)( ͡❛ ͜ʖ ͡❛)
+
+Anton schau diesen perfekten code an lg Fedor
+Vali Bali hat vergessen zu schreiben
+
+
+
+-->
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -108,14 +120,14 @@
       const startH = parseInt(startTime.substring(0, 2), 10);
       const startM = parseInt(startTime.substring(3, 5), 10);
       const screenNum = parseInt(form.dnr.value, 10);
-      const interval = setInterval(checkTime, 500, startH, startM, screenNum);
+      const interval = setInterval(checkTime, 50, startH, startM, screenNum);
 
       function checkTime(startH, startM, screenNum) {
         const now = new Date();
         const currentH = now.getHours();
         const currentM = now.getMinutes();
         const currentS = now.getSeconds();
-        const targetTimeInSeconds = (startM * 60) + (screenNum * 12);
+        const targetTimeInSeconds = (startM * 60) + (screenNum * 10);
         const currentTimeInSeconds = (currentM * 60) + currentS;
 
         if (startH === currentH && currentTimeInSeconds >= targetTimeInSeconds) {
