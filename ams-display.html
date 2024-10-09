@@ -53,7 +53,7 @@
     let dnr = form.dnr.value;
     const interval = setInterval(checkTime, 500, startH, startM, dnr);
     function checkTime(startH, startM, dnr) {
-      if(startH == (new Date()).getHours() && startM*60+dnr*12 <= (new Date()).getMinutes()*60+(new Date()).getSeconds()) {
+      if(startH == (new Date()).getHours() && startM*60+dnr*7 <= (new Date()).getMinutes()*60+(new Date()).getSeconds()) {
         document.getElementById('body').innerHTML = `<div class="img-container">
                                         <img src="https://ams-wien.at/images/AMS-Logo_150x150.png">
                                     </div>
