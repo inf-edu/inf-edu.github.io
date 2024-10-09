@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AMS</title>
+</head>
+<style>
+  body {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    min-height: 100vh;
+    flex-wrap: wrap;
+
+  }
+  .img-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  #floating-text{
+    position: relative;
+    width: 150vw;
+    animation-name: float;
+    animation-iteration-count: infinite;
+    animation-duration: 15s;
+    animation-timing-function: linear;
+    font-size: 350%;
+    font-family: "Century Schoolbook L";
+  }
+  @keyframes float {
+    0% {left: -80vw;}
+    100% {LEFT: 100vw;}
+  }
+</style>
+<body id="body">
+<form onsubmit="return 0;">
+  <label for="time">Startzeit</label>
+  <input type="time" id="time" name="time"><br>
+  <label for="dnr">Bildschirm Nummer</label>
+  <input type="number" id="dnr" name="dnr"><br>
+  <button type="button" onclick="starttime(this.form); return;">Start</button>
+</form>
+</body>
+</html>
+
+<script>
+  function starttime(form){
+    let start = form.time.value.toString();
+    let startH = parseInt(start.substring(0,2));
+    let startM = parseInt(start.substring(3,5));
+    let dnr = form.dnr.value;
+    const interval = setInterval(checkTime, 500, startH, startM, dnr);
+    function checkTime(startH, startM, dnr) {
+      if(startH == (new Date()).getHours() && startM*60+dnr*12 <= (new Date()).getMinutes()*60+(new Date()).getSeconds()) {
+        document.getElementById('body').innerHTML = `<div class="img-container">
+                                        <img src="https://ams-wien.at/images/AMS-Logo_150x150.png">
+                                    </div>
+                                        <h1 id="floating-text">Willkommen am Albertus Magnus Gymnasium!</h1>
+                                    <div class="img-container">
+                                        <img src="https://ams-wien.at/images/AMS-Logo_150x150.png">
+                                    </div>`;
+        clearInterval(interval);
+      }
+    }
+  }
+
+</script>
