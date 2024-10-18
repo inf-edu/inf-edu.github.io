@@ -22,6 +22,11 @@ Vali Bali hat vergessen zu schreiben
       padding: 0;
       box-sizing: border-box;
     }
+    anton {
+      width: 100vw;
+      height: 420px;
+      display: none;
+    }
 
     body {
       font-family: 'Arial', sans-serif;
@@ -104,7 +109,8 @@ Vali Bali hat vergessen zu schreiben
 
     <button type="button" onclick="startTime(this.form)">Start</button>
   </form>
-
+  </body>
+  <anton>Hallo Anton</anton>
   <script>
     // Funktion zur Voreinstellung der aktuellen Zeit im Input-Feld
     function setCurrentTime() {
@@ -141,5 +147,4 @@ Vali Bali hat vergessen zu schreiben
     // Setze die aktuelle Zeit beim Laden der Seite
     window.onload = setCurrentTime;
   </script>
-</body>
 </html>
