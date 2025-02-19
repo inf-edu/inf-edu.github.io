@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Witz</title>
+</head><!-- Style: Hier sammelt man alle CSS Einträge. -->
+<style>
+    .container{
+        max-height: 100vh;
+        overflow-y: scroll;
+        scroll-snap-type: y mandatory;
+        scrollbar-width: none;
+
+    }
+    .content {
+        padding: 7px;
+        margin-left: 3vw;
+        margin-top: 1rem;
+        scroll-snap-align: center;
+        height: 90vh;
+        width: 90vw;
+        border-radius: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .content:nth-child(even){
+            background: #1a1e21;
+            color: #badce3;
+    }
+    .content:nth-child(odd){
+        color: #1a1e21;
+        background: #badce3;
+    }
+    .content:last-child{
+        margin-bottom: 1rem;
+    }
+    p {
+        text-align: center;
+        font-size: clamp(2rem, 2.5vw, 4rem);
+    }
+</style>
+<body>
+<div class="container">
+    <div class="content">
+        <p>Hallo, willkommen auf meiner Website!</p>
+    </div>
+    <div class="content">
+        <p>Willst du einen Witz hören?</p>
+    </div>
+    <div class="content">
+        <p>Es gibt 10 Arten von Menschen in der Welt. </p>
+    </div>
+    <div class="content">
+        <p>Die einen verstehen das Binärsystem.</p>
+    </div>
+    <div class="content">
+        <p>Die anderen nicht! 🤣 🤣 🤣</p>
+    </div>
+</div>
+</body>
+</html>
